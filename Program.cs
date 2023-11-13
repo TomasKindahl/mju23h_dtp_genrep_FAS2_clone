@@ -8,7 +8,7 @@
     {
         static void Main(string[] args)
         {
-
+            Art[] artlista = new Art[100];
             string[] art = new string[100];
             string[] familj = new string[100];
             string[] sv = new string[100];
