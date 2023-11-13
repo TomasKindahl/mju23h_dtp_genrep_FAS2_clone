@@ -38,38 +38,38 @@
                 // en Input i stället för Console.Write/Console.ReadLine
                 // kan bryta ut metoder, t.ex. för "ny"
                 Console.Write("kommando: ");
-                string c = Console.ReadLine();
-                if (c == "sluta")
+                string kommando = Console.ReadLine();
+                if (kommando == "sluta")
                 {
                     break;
                 }
-                else if (c == "hjälp")
+                else if (kommando == "hjälp")
                 {
                     Console.WriteLine("hjälp     - lista kommandona");
                     Console.WriteLine("lista     - lista alla arter");
                 }
-                else if (c == "lista")
+                else if (kommando == "lista")
                 {
                     for (int i = 0; i < sista; i++)
                     {
                         Console.WriteLine($"{sv[i],-12}  {art[i],-24} fam.: {familj[i],-30}");
                     }
                 }
-                else if (c == "ny")
+                else if (kommando == "ny")
                 {
                     Console.Write("artnamn: ");
-                    string a = Console.ReadLine();
+                    string artnamn = Console.ReadLine();
                     Console.Write("familj:  ");
-                    string f = Console.ReadLine();
+                    string familjenamn = Console.ReadLine();
                     Console.Write("svenska: ");
-                    string s = Console.ReadLine();
-                    art[sista] = a; familj[sista] = f; sv[sista] = s;
+                    string svensktNamn = Console.ReadLine();
+                    art[sista] = artnamn; familj[sista] = familjenamn; sv[sista] = svensktNamn;
                     sista++;
-                    Console.WriteLine($"{a} tillagd");
+                    Console.WriteLine($"{artnamn} tillagd");
                 }
                 else
                 {
-                    Console.WriteLine($"Vaddå '{c}'?");
+                    Console.WriteLine($"Vaddå '{kommando}'?");
                 }
             }
             Console.WriteLine("Hej då!");
