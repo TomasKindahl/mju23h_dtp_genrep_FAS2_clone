@@ -14,18 +14,12 @@
     {
         static void Main(string[] args)
         {
-            Art[] artlista = new Art[100];
-            int sista = 0;
-            artlista[sista] = new Art("Hepatica nobilis", "Ranunculaceae", "Blåsippa");
-            sista++;
-            artlista[sista] = new Art("Anemone nemorosa", "Ranunculaceae", "Vitsippa");
-            sista++;
-            artlista[sista] = new Art("Taraxacum ruderalia", "Asteraceae", "Maskros");
-            sista++;
-            artlista[sista] = new Art("Malus domestica", "Rosales", "Äppelträd");
-            sista++;
-            artlista[sista] = new Art("Pinus sylvestris", "Pinaceae", "Tall");
-            sista++;
+            List<Art> artlista = new List<Art>();
+            artlista.Add(new Art("Hepatica nobilis", "Ranunculaceae", "Blåsippa"));
+            artlista.Add(new Art("Anemone nemorosa", "Ranunculaceae", "Vitsippa"));
+            artlista.Add(new Art("Taraxacum ruderalia", "Asteraceae", "Maskros"));
+            artlista.Add(new Art("Malus domestica", "Rosales", "Äppelträd"));
+            artlista.Add(new Art("Pinus sylvestris", "Pinaceae", "Tall"));
             Console.WriteLine("Hej och välkommen till artdatabasen!");
             Console.WriteLine("Skriv 'hjälp' för hjälp, 'sluta' för att sluta!");
             while (true)
@@ -50,7 +44,7 @@
                 }
                 else if (kommando == "lista")
                 {
-                    for (int i = 0; i < sista; i++)
+                    for (int i = 0; i < artlista.Count; i++)
                     {
                         Console.WriteLine($"{artlista[i].svenska,-12}  {artlista[i].art,-24} fam.: {artlista[i].familj,-30}");
                     }
@@ -64,8 +58,7 @@
                     Console.Write("svenska: ");
                     string svensktNamn = Console.ReadLine();
                     Art A = new Art(artnamn, familjenamn, svensktNamn);
-                    artlista[sista] = A;
-                    sista++;
+                    artlista.Add(A);
                     Console.WriteLine($"{artnamn} tillagd");
                 }
                 else
