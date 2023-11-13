@@ -15,27 +15,16 @@
         static void Main(string[] args)
         {
             Art[] artlista = new Art[100];
-            string[] art = new string[100];
-            string[] familj = new string[100];
-            string[] sv = new string[100];
             int sista = 0;
-            artlista[0] = new Art("Hepatica nobilis", "Ranunculaceae", "Blåsippa");
-            // sista++;
-            art[sista] = "Anemone nemorosa";
-            familj[sista] = "Ranunculaceae";
-            sv[sista] = "Vitsippa";
+            artlista[sista] = new Art("Hepatica nobilis", "Ranunculaceae", "Blåsippa");
             sista++;
-            art[sista] = "Taraxacum ruderalia";
-            familj[sista] = "Asteraceae";
-            sv[sista] = "Maskros";
+            artlista[sista] = new Art("Anemone nemorosa", "Ranunculaceae", "Vitsippa");
             sista++;
-            art[sista] = "Malus domestica";
-            familj[sista] = "Rosales";
-            sv[sista] = "Äppelträd";
+            artlista[sista] = new Art("Taraxacum ruderalia", "Asteraceae", "Maskros");
             sista++;
-            art[sista] = "Pinus sylvestris";
-            familj[sista] = "Pinaceae";
-            sv[sista] = "Tall";
+            artlista[sista] = new Art("Malus domestica", "Rosales", "Äppelträd");
+            sista++;
+            artlista[sista] = new Art("Pinus sylvestris", "Pinaceae", "Tall");
             sista++;
             Console.WriteLine("Hej och välkommen till artdatabasen!");
             Console.WriteLine("Skriv 'hjälp' för hjälp, 'sluta' för att sluta!");
@@ -63,7 +52,7 @@
                 {
                     for (int i = 0; i < sista; i++)
                     {
-                        Console.WriteLine($"{sv[i],-12}  {art[i],-24} fam.: {familj[i],-30}");
+                        Console.WriteLine($"{artlista[i].svenska,-12}  {artlista[i].art,-24} fam.: {artlista[i].familj,-30}");
                     }
                 }
                 else if (kommando == "ny")
@@ -74,7 +63,8 @@
                     string familjenamn = Console.ReadLine();
                     Console.Write("svenska: ");
                     string svensktNamn = Console.ReadLine();
-                    art[sista] = artnamn; familj[sista] = familjenamn; sv[sista] = svensktNamn;
+                    Art A = new Art(artnamn, familjenamn, svensktNamn);
+                    artlista[sista] = A;
                     sista++;
                     Console.WriteLine($"{artnamn} tillagd");
                 }
