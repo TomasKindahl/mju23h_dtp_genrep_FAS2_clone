@@ -32,6 +32,11 @@
             Console.WriteLine("Skriv 'hjälp' för hjälp, 'sluta' för att sluta!");
             while (true)
             {
+                // FIXME: 
+                // List i stället för array!!
+                // klass i STÄLLET FÖR sträng-arrayer
+                // en Input i stället för Console.Write/Console.ReadLine
+                // kan bryta ut metoder, t.ex. för "ny"
                 Console.Write("kommando: ");
                 string c = Console.ReadLine();
                 if (c == "sluta")
